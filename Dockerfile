@@ -32,7 +32,7 @@ WORKDIR $CAFFE_ROOT
 ENV CLONE_TAG=1.0
 
 RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/BVLC/caffe.git . && \
-    pip install --upgrade wheel setuptools distutils && \
+    python -m pip install --upgrade wheel distutils && \
     cd python && pip install -r requirements.txt && cd .. && \
     mkdir build && cd build && \
     cmake -DCPU_ONLY=1 .. && \
